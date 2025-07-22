@@ -1,2 +1,44 @@
-print("This is a tic tac toe game")
+print("This is a tic tac toe game:")
+print("")
+game_board = [ #Gameboard
+    ["1", "¦", "2", "¦", "3"],
+    ["4", "¦", "5", "¦", "6"],
+    ["7", "¦", "8", "¦", "9"]
+]
+nums = [1, 2, 3, 4, 5, 6, 7, 8, 9] #Positions where the player can place a number
+
+
+
+def printBoard(): #printing Game Board
+    print("".join(game_board[0]))
+    print("".join(game_board[1]))
+    print("".join(game_board[2]))
+
+
+#Game
+printBoard()
+
+print("Where do you want to set the x?")
+
+player_1 = int(input())
+print("player positions add ", player_1)
+
+for x in nums:
+    if(x == player_1):
+        nums.remove(player_1)
+
+player_1_str = str(player_1)
+
+
+for x, numx in enumerate(game_board): #i for index
+    print(type(x))
+    #print(num)
+    for y, numy in enumerate(numx):
+        print(type(y))
+        if(game_board[x][y] == player_1_str):
+            game_board[0][0] = "x"
+print(nums)
+printBoard()
+
+#game_board[][] = player_1
 
