@@ -15,30 +15,56 @@ def printBoard(): #printing Game Board
     print("".join(game_board[2]))
 
 
-#Game
-printBoard()
+def player_1():
+    print("Where do you want to set the x?")
+    player_1 = int(input())
+    check_set_position(player_1)
 
-print("Where do you want to set the x?")
+def player_2():
+    print("Where do you want to set the o?")
+    player_2 = int(input())
 
-player_1 = int(input())
-print("player positions add ", player_1)
+def check_set_position(pl):
+    checker = False
+    for x in nums:
+        if(x == player_1):
+            nums.remove(player_1)
+            checker = True
+    if(checker==False):
+        print("Please enter a valid number")
+        player_1() 
+    player = str (pl)
+    set_position(player)
 
-for x in nums:
-    if(x == player_1):
-        nums.remove(player_1)
 
-player_1_str = str(player_1)
-
-
-for x, numx in enumerate(game_board): #i for index
-    print(type(x))
+def set_position(pls):
+    for x, numx in enumerate(game_board): #i for index
+        print(type(x))
     #print(num)
-    for y, numy in enumerate(numx):
-        print(type(y))
-        if(game_board[x][y] == player_1_str):
-            game_board[0][0] = "x"
-print(nums)
-printBoard()
+        for y, numy in enumerate(numx):
+            print(type(y))
+            if(game_board[x][y] == pls):
+                game_board[x][y] = "x"
 
-#game_board[][] = player_1
+printBoard()
+player_1()
+
+
+# #Game
+# printBoard()
+# player_1()
+
+
+# # # for x in nums:
+# # #     if(x == player_1):
+# # #         nums.remove(player_1)
+
+# # player_1_str = str(player_1)
+
+
+
+# print(nums)
+# printBoard()
+
+# #game_board[][] = player_1
 
