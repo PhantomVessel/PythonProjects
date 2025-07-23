@@ -27,8 +27,8 @@ def player_2():
 def check_set_position(pl):
     checker = False
     for x in nums:
-        if(x == player_1):
-            nums.remove(player_1)
+        if(x == pl):
+            nums.remove(pl)
             checker = True
     if(checker==False):
         print("Please enter a valid number")
@@ -40,9 +40,11 @@ def check_set_position(pl):
 def set_position(pls):
     for x, numx in enumerate(game_board): #i for index
         print(type(x))
+        print("X")
     #print(num)
         for y, numy in enumerate(numx):
             print(type(y))
+            print("Y")
             if(game_board[x][y] == pls):
                 game_board[x][y] = "x"
 
