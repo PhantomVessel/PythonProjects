@@ -6,16 +6,17 @@ game_board = [ #Gameboard
     ["7", "¦", "8", "¦", "9"]
 ]
 nums = [1, 2, 3, 4, 5, 6, 7, 8, 9] #Positions where the player can place a number
+global moves
+moves = 0
+#Every Function need to do one thing!
 
-
-
-def printBoard(): #printing Game Board
+def printBoard(): #printing Game Board 
     print("".join(game_board[0]))
     print("".join(game_board[1]))
     print("".join(game_board[2]))
 
 
-def player_1():
+def player_1(): 
     print("Where do you want to set the x?")
     player_1 = int(input())
     ply_form = "X"
@@ -27,7 +28,7 @@ def player_2():
     ply_form = "O" 
     check_set_position(player_2, ply_form)
 
-def check_set_position(pl, form):
+def check_set_position(pl, form): #This code should probably change
     checker = False
     for x in nums:
         if(x == pl):
@@ -35,7 +36,7 @@ def check_set_position(pl, form):
             checker = True
     if(checker==False):
         print("Please enter a valid number")
-        player_1() 
+        
     player = str(pl)
     set_position(player, form)
 
@@ -50,7 +51,7 @@ def set_position(pls, form):
 
 def check_win():
     printBoard()
-    print("Comes later!")
+    
 
 printBoard()
 player_1()#1
