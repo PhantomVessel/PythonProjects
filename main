@@ -18,14 +18,16 @@ def printBoard(): #printing Game Board
 def player_1():
     print("Where do you want to set the x?")
     player_1 = int(input())
-    check_set_position(player_1)
+    ply_form = "X"
+    check_set_position(player_1, ply_form)
 
 def player_2():
     print("Where do you want to set the o?")
     player_2 = int(input())
-    check_set_position(player_2)
+    ply_form = "O" 
+    check_set_position(player_2, ply_form)
 
-def check_set_position(pl):
+def check_set_position(pl, form):
     checker = False
     for x in nums:
         if(x == pl):
@@ -35,14 +37,14 @@ def check_set_position(pl):
         print("Please enter a valid number")
         player_1() 
     player = str(pl)
-    set_position(player)
+    set_position(player, form)
 
 
-def set_position(pls):
+def set_position(pls, form):
     for x, numx in enumerate(game_board): #i for index
         for y, numy in enumerate(numx):
             if(game_board[x][y] == pls):
-                game_board[x][y] = "x" #it's eiter X or O
+                game_board[x][y] =  form#it's eiter X or O
     print("Loop Through")
     check_win()
 
