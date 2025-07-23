@@ -23,6 +23,7 @@ def player_1():
 def player_2():
     print("Where do you want to set the o?")
     player_2 = int(input())
+    check_set_position(player_2)
 
 def check_set_position(pl):
     checker = False
@@ -33,25 +34,32 @@ def check_set_position(pl):
     if(checker==False):
         print("Please enter a valid number")
         player_1() 
-    player = str (pl)
+    player = str(pl)
     set_position(player)
 
 
 def set_position(pls):
     for x, numx in enumerate(game_board): #i for index
-        print(type(x))
-        print("X")
-    #print(num)
         for y, numy in enumerate(numx):
-            print(type(y))
-            print("Y")
             if(game_board[x][y] == pls):
-                game_board[x][y] = "x"
+                game_board[x][y] = "x" #it's eiter X or O
+    print("Loop Through")
+    check_win()
+
+def check_win():
+    printBoard()
+    print("Comes later!")
 
 printBoard()
-player_1()
-
-
+player_1()#1
+player_2()#2
+player_1()#3
+player_2()#4
+player_1()#5
+player_2()#6
+player_1()#7
+player_2()#8
+player_1()#9
 # #Game
 # printBoard()
 # player_1()
