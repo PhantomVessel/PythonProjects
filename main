@@ -10,21 +10,31 @@ values = ["Rock", "Paper", "Scicors"]
 game_points_1 = 0
 game_points_com = 0
 
+def checkValue(ply, ply_comp):
+    for x, num in enumerate(values):
+        if(num[x] == ply[x]):
+            ply = x
+    checkResult(ply, ply_comp)
+
 def checkResult(ply, ply_comp):
-    print("Player chose ", ply, " Computer chose ", ply_comp)
-    for x in values:
-        print(x)
-    
-    
+    #Scenerio Draw Rock/Rock Paper/Paper Scicors/Scicors
+    if(ply==ply_comp):
+        print("Draw")
+        return
+    else:
+        print("Player or Computer won!")
+        #Wining function will be written tomorow!
+
 
 print("How many points to win?")
 points = int(input())
 
 
 while(points > game_points_1 or game_points_com):
-    ply = input("What do you chose: ")
+    ply = str(input("What do you chose: "))
     ply_comp = random.choice(values)
-    checkResult(ply, ply_comp)
+    ply = ply.capitalize()
+    checkValue(ply, ply_comp)
 
 
 
