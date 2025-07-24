@@ -1,83 +1,31 @@
-print("This is a tic tac toe game:")
-print("")
-game_board = [ #Gameboard
-    ["1", "¦", "2", "¦", "3"],
-    ["4", "¦", "5", "¦", "6"],
-    ["7", "¦", "8", "¦", "9"]
-]
-nums = [1, 2, 3, 4, 5, 6, 7, 8, 9] #Positions where the player can place a number
-global moves
-moves = 0
-#Every Function need to do one thing!
+import random
 
-def printBoard(): #printing Game Board 
-    print("".join(game_board[0]))
-    print("".join(game_board[1]))
-    print("".join(game_board[2]))
+print("This is an Rock paper scicors game")
+print("r = rock")
+print("p = paper")
+print("s = scicors")
 
+values = ["Rock", "Paper", "Scicors"]
 
-def player_1(): 
-    print("Where do you want to set the x?")
-    player_1 = int(input())
-    ply_form = "X"
-    check_set_position(player_1, ply_form)
+game_points_1 = 0
+game_points_com = 0
 
-def player_2():
-    print("Where do you want to set the o?")
-    player_2 = int(input())
-    ply_form = "O" 
-    check_set_position(player_2, ply_form)
-
-def check_set_position(pl, form): #This code should probably change
-    checker = False
-    for x in nums:
-        if(x == pl):
-            nums.remove(pl)
-            checker = True
-    if(checker==False):
-        print("Please enter a valid number")
-        
-    player = str(pl)
-    set_position(player, form)
-
-
-def set_position(pls, form):
-    for x, numx in enumerate(game_board): #i for index
-        for y, numy in enumerate(numx):
-            if(game_board[x][y] == pls):
-                game_board[x][y] =  form#it's eiter X or O
-    print("Loop Through")
-    check_win()
-
-def check_win():
-    printBoard()
+def checkResult(ply, ply_comp):
+    print("Player chose ", ply, " Computer chose ", ply_comp)
+    for x in values:
+        print(x)
+    
     
 
-printBoard()
-player_1()#1
-player_2()#2
-player_1()#3
-player_2()#4
-player_1()#5
-player_2()#6
-player_1()#7
-player_2()#8
-player_1()#9
-# #Game
-# printBoard()
-# player_1()
+print("How many points to win?")
+points = int(input())
 
 
-# # # for x in nums:
-# # #     if(x == player_1):
-# # #         nums.remove(player_1)
-
-# # player_1_str = str(player_1)
+while(points > game_points_1 or game_points_com):
+    ply = input("What do you chose: ")
+    ply_comp = random.choice(values)
+    checkResult(ply, ply_comp)
 
 
 
-# print(nums)
-# printBoard()
-
-# #game_board[][] = player_1
 
